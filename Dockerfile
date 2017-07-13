@@ -27,7 +27,4 @@ RUN ln -s /home/steam/linux32 /home/steam/.steam/sdk32
 
 ADD ./csgo_entrypoint.sh csgo_entrypoint.sh
 
-# Add default configuration files
-ADD cfg/ /home/steam/csgo/csgo/cfg
-
 CMD ./csgo_entrypoint.sh
