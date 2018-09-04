@@ -2,7 +2,8 @@ FROM ubuntu:latest
 MAINTAINER Mathieu Duperre <mathieu.duperre@gmail.com>
 
 RUN apt-get update && \
-    apt-get install -y wget lib32gcc1 lib32tinfo5 unzip nginx
+    apt-get install -y wget lib32gcc1 lib32tinfo5 unzip nginx glibc.i686 libgcc.i686 libstdc++.i686
+
 
 RUN useradd -ms /bin/bash steam
 WORKDIR /home/steam
