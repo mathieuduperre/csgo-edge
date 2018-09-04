@@ -12,7 +12,7 @@ docker run --name csgo-edge -it ubuntu:latest bash
 
 apt-get update
 
-apt-get install -y lib32gcc1 libc6-i386 wget
+apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6
 
 cd root
 
@@ -25,6 +25,8 @@ tar -xvzf steamcmd_linux.tar.gz
 cd csgo
 
 ./srcds_run -console -usercon +net_public_adr X.X.X.X +ip X.X.X. -port 27015 -game csgo -tickrate 100 +game_type 0 +game_mode 0 +mapgroup mg_bomb +map de_dust2 +maxplayers 22 -maxplayers_override 22 +exec server.cfg -stringtables -condebug +sv_setsteamaccount 
+
+./srcds_run -console -usercon +hostname "whatevername" +net_public_adr "x.x.x.x" +ip "x.x.x.x" -port 27015 -game csgo -tickrate 100 +game_type 0 +game_mode 0 +mapgroup mg_bomb +map de_dust2 +maxplayers 22 -maxplayers_override 22 +exec server.cfg -stringtables -condebug +sv_setsteamaccount "XXXXXXXXXX"
 
 ---------------------------------------------------------
 
