@@ -14,7 +14,7 @@ RUN wget -O /tmp/steamcmd_linux.tar.gz http://media.steampowered.com/installer/s
     rm /tmp/steamcmd_linux.tar.gz
 
 # Install CSGO once to speed up container startup
-#RUN ./steamcmd.sh +login anonymous +force_install_dir ./csgo +app_update 740 validate +quit
+RUN ./steamcmd.sh +login anonymous +force_install_dir ./csgo +app_update 740 validate +quit
 
 ENV CSGO_HOSTNAME Counter-Strike Source Dedicated Server
 ENV PUBLIC_IP ""
@@ -24,7 +24,7 @@ ENV STEAM_ACCOUNT_TOKEN ""
 EXPOSE 27015/udp
 EXPOSE 27015
 
-#RUN ln -s /home/steam/linux32 /home/steam/.steam/sdk32
+RUN ln -s /home/steam/linux32 /home/steam/.steam/sdk32
 
 ADD ./csgo_entrypoint.sh csgo_entrypoint.sh
 
