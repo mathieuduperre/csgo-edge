@@ -1,8 +1,34 @@
 # csgo-edge
 
 ---------------------------------------------------------
+Quick start:
 
-How this was built
+You can easily start one instance by simply doing:
+
+docker pull grido/csgo-edge
+
+docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=4E9BE9DCE9E8954D015414FE099A1730 grido/csgo-edge
+
+
+(make sure your steam account token, aka GSLT, is using the code 730. You need to install using 740, but the token to start it needs to be 730...)
+
+---------------------------------------------------------
+To build the docker image locally by using this git repo:
+
+git clone https://github.com/mathieuduperre/csgo-edge.git
+cd csgo-edge
+chmod +x csgo_entrypoint.sh
+docker build -t grido/csgo-edge .
+docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=4E9BE9DCE9E8954D015414FE099A1730 grido/csgo-edge
+
+(make sure your steam account token, aka GSLT, is using the code 730. You need to install using 740, but the token to start it needs to be 730...)
+
+
+
+
+----------------------------------------------------------
+How the docker was built. You should not need that, these are just notes.
+
 
 SETUP CSGO ON CENTOS/Docker FROM BAREMETAL - WORKING
 (as root)
@@ -35,18 +61,6 @@ tar -xvzf steamcmd_linux.tar.gz
 
 cd csgo
 
+#this string does not work anymore, use the entrypoint script
 ./srcds_run -console -usercon +net_public_adr X.X.X.X +ip X.X.X. -port 27015 -game csgo -tickrate 100 +game_type 0 +game_mode 0 +mapgroup mg_bomb +map de_dust2 +maxplayers 22 -maxplayers_override 22 +exec server.cfg -stringtables -condebug +sv_setsteamaccount 
 
-
----------------------------------------------------------
-
-git clone https://github.com/mathieuduperre/csgo-edge.git
-cd csgo-edge
-chmod +x csgo_entrypoint.sh
-docker build -t grido/csgo-edge .
-docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=4E9BE9DCE9E8954D015414FE099A1730 grido/csgo-edge
-
-
-(make sure your steam account token, aka GSLT, is using the code 730. You need to install using 740, but the token to start it needs to be 730...)
-
-----------------
