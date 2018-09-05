@@ -7,7 +7,7 @@ You can easily start one instance by simply doing:
 
 docker pull grido/csgo-edge
 
-docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=4E9BE9DCE9E8954D015414FE099A1730 grido/csgo-edge
+docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXX grido/csgo-edge
 
 
 (make sure your steam account token, aka GSLT, is using the code 730. You need to install using 740, but the token to start it needs to be 730...)
@@ -19,7 +19,7 @@ git clone https://github.com/mathieuduperre/csgo-edge.git
 cd csgo-edge
 chmod +x csgo_entrypoint.sh
 docker build -t grido/csgo-edge .
-docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=4E9BE9DCE9E8954D015414FE099A1730 grido/csgo-edge
+docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXX grido/csgo-edge
 
 (make sure your steam account token, aka GSLT, is using the code 730. You need to install using 740, but the token to start it needs to be 730...)
 
