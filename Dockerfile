@@ -24,7 +24,7 @@ ENV STEAM_ACCOUNT_TOKEN ""
 EXPOSE 27015/udp
 EXPOSE 27015
 
-RUN ln -s /home/steam/linux32 /home/steam/.steam/sdk32
+#RUN ln -s /home/steam/linux32 /home/steam/.steam/sdk32
 
 ADD ./csgo_entrypoint.sh csgo_entrypoint.sh
 
