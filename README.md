@@ -4,6 +4,17 @@
 
 How this was built
 
+SETUP CSGO ON CENTOS/Docker FROM BAREMETAL - WORKING
+(as root)
+yum update -y
+yum upgrade -y
+adduser csgo
+yum install docker wget git -y
+systemctl disable firewalld
+systemctl stop firewalld
+systemctl start docker
+
+
 apt-get install docker.io
 
 docker pull ubuntu
@@ -29,13 +40,12 @@ cd csgo
 
 ---------------------------------------------------------
 
-TO RUN CSGO DOCKER
-
 git clone https://github.com/mathieuduperre/csgo-edge.git
+cd csgo-edge
+chmod +x csgo_entrypoint.sh
+docker build -t grido/csgo-edge .
+docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=4E9BE9DCE9E8954D015414FE099A1730 grido/csgo-edge
 
-docker build -t csgo-edge .
-
-docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=xxxxx -e PUBLIC_IP=X.X.X.X -e private_ip=X.X.X.X csgo-edge
 
 (make sure your steam account token, aka GSLT, is using the code 730. You need to install using 740, but the token to start it needs to be 730...)
 
