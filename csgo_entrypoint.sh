@@ -3,7 +3,7 @@ set -e
 trap '' TERM INT HUP
 
 # Ensure csgo is up to date
-./steamcmd.sh +login anonymous +force_install_dir ./csgo +app_update 740 validate +quit
+#./steamcmd.sh +login anonymous +force_install_dir ./csgo +app_update 740 validate +quit
 ln -s /home/steam/linux32 /home/steam/.steam/sdk32
 
 cd csgo
