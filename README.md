@@ -58,7 +58,7 @@ apt-get update
 
 apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6 lib32tinfo5
 
-apt-get install libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
+apt-get install -y libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
 
 cd root
 
