@@ -44,16 +44,21 @@ systemctl disable firewalld
 systemctl stop firewalld
 systemctl start docker
 
-
 apt-get install docker.io
+
+-----------------------------------------
 
 docker pull ubuntu
 
 docker run --name csgo-edge -it ubuntu:latest bash
 
+dpkg --add-architecture i386
+
 apt-get update
 
-apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6
+apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6 lib32tinfo5
+
+apt-get install libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
 
 cd root
 
@@ -65,6 +70,8 @@ tar -xvzf steamcmd_linux.tar.gz
 
 cd csgo
 
-#this string does not work anymore, use the entrypoint script
-./srcds_run -console -usercon +net_public_adr X.X.X.X +ip X.X.X. -port 27015 -game csgo -tickrate 100 +game_type 0 +game_mode 0 +mapgroup mg_bomb +map de_dust2 +maxplayers 22 -maxplayers_override 22 +exec server.cfg -stringtables -condebug +sv_setsteamaccount 
+mkdir /root/.steam/sdk32
 
+ln -s /root/csgo/bin/steamclient.so /root/.steam/sdk32/steamclient.so
+
+./srcds_run -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 +sv_setsteamaccount "60C0ED7D1EFC6251D716FE1354C6FB84"
