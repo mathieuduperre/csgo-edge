@@ -74,4 +74,4 @@ mkdir /root/.steam/sdk32
 
 ln -s /root/csgo/bin/steamclient.so /root/.steam/sdk32/steamclient.so
 
-./srcds_run -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 +sv_setsteamaccount "60C0ED7D1EFC6251D716FE1354C6FB84"
+./srcds_run -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 +sv_setsteamaccount "XXXXXXXXXXXXXX"
