@@ -1,7 +1,7 @@
-# csgo-edge
+# Counter-strike Global Offense docker container
 
----------------------------------------------------------
-Quick start:
+-------------------------------------------------------------------------------------------------------------------
+## Quick start:
 
 You can easily start one instance by simply doing:
 
@@ -9,17 +9,17 @@ docker pull grido/csgo-edge
 
 docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXX grido/csgo-edge
 
-
 (make sure your steam account token, aka GSLT, is using the code 730. You need to install using 740, but the token to start it needs to be 730...)
 
----------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+## How to build docker image
+
+useful if you need to update
 To build the docker image locally by using this git repo:
 
 git clone https://github.com/mathieuduperre/csgo-edge.git
 
 cd csgo-edge
-
-chmod +x csgo_entrypoint.sh
 
 docker build -t grido/csgo-edge .
 
@@ -29,10 +29,10 @@ docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=XXXXXXXXXXXX
 
 
 
+--------------------------------------------------------------------------------------------------------------------
+## How the dockerfile was built. 
 
-----------------------------------------------------------
-How the docker was built. You should not need that, these are just notes.
-
+You should not need that, these are just notes.
 
 SETUP CSGO ON CENTOS/Docker FROM BAREMETAL - WORKING
 (as root)
@@ -45,8 +45,6 @@ systemctl stop firewalld
 systemctl start docker
 
 apt-get install docker.io
-
------------------------------------------
 
 docker pull ubuntu
 
