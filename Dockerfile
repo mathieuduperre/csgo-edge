@@ -34,6 +34,8 @@ RUN ln -s /home/steam/csgo/bin/steamclient.so /home/steam/.steam/sdk32/steamclie
 
 USER steam
 ADD ./csgo_entrypoint.sh csgo_entrypoint.sh
-RUN ["chmod", "+x", "./csgo_entrypoint.sh"]
+USER root
+RUN ["chmod", "775", "./csgo_entrypoint.sh"]
+USER steam
 
 CMD ./csgo_entrypoint.sh
