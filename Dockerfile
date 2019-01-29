@@ -29,8 +29,8 @@ EXPOSE 27015/udp
 EXPOSE 27015
 
 USER root
-RUN mkdir /root/.steam/sdk32
-RUN ln -s /root/csgo/bin/steamclient.so /root/.steam/sdk32/steamclient.so
+RUN mkdir /home/steam/.steam/sdk32
+RUN ln -s /home/steam/csgo/bin/steamclient.so /home/steam/.steam/sdk32/steamclient.so
 
 USER steam
 ADD ./csgo_entrypoint.sh csgo_entrypoint.sh
