@@ -9,7 +9,9 @@ RUN apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6 lib32tinfo5 wget
 
 RUN apt-get install -y libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
 
-WORKDIR root
+RUN useradd -ms /bin/bash steam
+WORKDIR /home/steam
+USER steam
 
 RUN wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz
 
@@ -26,12 +28,12 @@ ENV STEAM_ACCOUNT_TOKEN ""
 EXPOSE 27015/udp
 EXPOSE 27015
 
+USER root
 RUN mkdir /root/.steam/sdk32
-
 RUN ln -s /root/csgo/bin/steamclient.so /root/.steam/sdk32/steamclient.so
 
+USER steam
 ADD ./csgo_entrypoint.sh csgo_entrypoint.sh
-
 RUN ["chmod", "+x", "./csgo_entrypoint.sh"]
 
 CMD ./csgo_entrypoint.sh
