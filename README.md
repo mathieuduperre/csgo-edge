@@ -34,6 +34,8 @@ git clone https://github.com/mathieuduperre/csgo-edge.git
 
 cd csgo-edge
 
+chmod 775 csgo_entrypoint.sh
+
 docker build -t grido/csgo-edge .
 
 docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXX grido/csgo-edge
