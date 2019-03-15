@@ -3,6 +3,8 @@ MAINTAINER Mathieu Duperre <mathieu.duperre@gmail.com>
 
 RUN dpkg --add-architecture i386
 
+RUN apt-get update && apt-get install -y apt-transport-https
+
 RUN apt-get update
 
 RUN apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6 lib32tinfo5 wget
