@@ -16,10 +16,15 @@ docker run -p 27015:27015 -p 27015:27015/udp -e STEAM_ACCOUNT_TOKEN=XXXXXXXXXXXX
 ## How to udpate your image
 
  git clone https://github.com/mathieuduperre/csgo-edge.git
+ 
  cd csgo-edge/
+ 
  docker build -t grido/csgo-edge .
+ 
  docker tag grido/csgo-edge:latest grido/csgo-edge:latest
+ 
  docker login
+ 
  docker push grido/csgo-edge:latest
  
  from there you can run or pull and it will pull the latest.
