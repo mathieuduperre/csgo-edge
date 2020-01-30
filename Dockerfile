@@ -20,7 +20,7 @@ RUN wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz
 RUN tar -xvzf steamcmd_linux.tar.gz
 
 # Install CSGO once to speed up container startup
-RUN ./steamcmd.sh +login anonymous +force_install_dir ./csgo +app_update 740 +quit
+RUN ./steamcmd.sh +login anonymous +force_install_dir ./csgo +app_update 740 validate +quit
 
 ENV CSGO_HOSTNAME Counter-Strike Source Dedicated Server
 ENV PUBLIC_IP ""
