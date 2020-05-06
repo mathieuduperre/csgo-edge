@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y apt-transport-https
 
 RUN apt-get update
 
-RUN apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6 lib32tinfo5 wget
+RUN apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6 wget
 
 RUN apt-get install -y libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
 
