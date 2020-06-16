@@ -1,11 +1,17 @@
 FROM ubuntu:16.04
 MAINTAINER Mathieu Duperre <mathieu.duperre@gmail.com>
 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+RUN rm /var/cache/debconf/*   #no wories it's just a cache folder
+
+RUN apt-get update
+
 RUN dpkg --add-architecture i386
 
 RUN apt-get update && apt-get install -y apt-transport-https
 
-RUN apt-get update
+RUN apt-get install -y --no-install-recommends apt-utils
 
 RUN apt-get install -y lib32gcc1 libc6-i386 wget lib32stdc++6 wget
 
