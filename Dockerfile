@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.04
 MAINTAINER Mathieu Duperre <mathieu.duperre@gmail.com>
 
 RUN dpkg --add-architecture i386
