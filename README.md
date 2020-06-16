@@ -56,12 +56,19 @@ You should not need that, these are just notes.
 
 SETUP CSGO ON CENTOS/Docker FROM BAREMETAL - WORKING
 (as root)
+
 yum update -y
+
 yum upgrade -y
+
 adduser csgo
+
 yum install docker wget git -y
+
 systemctl disable firewalld
+
 systemctl stop firewalld
+
 systemctl start docker
 
 apt-get install docker.io
