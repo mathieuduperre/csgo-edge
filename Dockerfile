@@ -43,6 +43,9 @@ RUN ln -s /home/steam/csgo/bin/steamclient.so /home/steam/.steam/sdk32/steamclie
 USER steam
 ADD ./csgo_entrypoint.sh csgo_entrypoint.sh
 USER root
+# remove to enable telemetry. you need to copy the agent binary first
+#ADD ./asa_agent ./asa_agent
+#RUN ["chmod", "775", "./asa_agent.sh"]
 RUN ["chmod", "775", "./csgo_entrypoint.sh"]
 USER steam
 
